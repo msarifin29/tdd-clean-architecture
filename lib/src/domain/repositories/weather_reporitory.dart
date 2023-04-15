@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:tdd_clean_architecture_app/src/core/failure.dart';
+import 'package:tdd_clean_architecture_app/src/core/error/failure.dart';
 import 'package:tdd_clean_architecture_app/src/domain/entities/weather.dart';
 
 abstract class WeatherRepository {

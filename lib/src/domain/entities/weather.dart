@@ -18,7 +18,6 @@ class Weather extends Equatable {
     required this.pressure,
     required this.humidity,
   });
-
   @override
   List<Object?> get props => [
         cityName,
