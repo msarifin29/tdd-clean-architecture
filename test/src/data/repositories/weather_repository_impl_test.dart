@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:tdd_clean_architecture_app/src/core/error/exceptions.dart';
+import 'package:tdd_clean_architecture_app/src/core/error/failure.dart';
 import 'package:tdd_clean_architecture_app/src/data/data_sources/remote_data_source.dart';
 import 'package:tdd_clean_architecture_app/src/data/models/weather_model.dart';
 import 'package:tdd_clean_architecture_app/src/data/repositories/weather_repository_impl.dart';
@@ -58,6 +62,29 @@ void main() {
       // assert
       verify(remoteData.getCurrentWeather(cityName));
       expect(result, equals(const Right(tWeather)));
+    });
+
+    test(
+        "should return server failure when a call to data source is unsuccessful ",
+        () async {
+      // arrange
+      when(remoteData.getCurrentWeather(cityName))
+          .thenThrow(ServerException()); // act
+      final result = await repository.getCurrentWeather(cityName);
+      // assert
+      verify(remoteData.getCurrentWeather(cityName));
+      expect(result, equals(const Left(ServerFailure(""))));
+    });
+
+    test("should return connection failure when the device has no internet ",
+        () async {
+      // arrange
+      when(remoteData.getCurrentWeather(cityName)).thenThrow(
+          const SocketException("Failed to connect to the network")); // act
+      final result = await repository.getCurrentWeather(cityName);
+      // assert
+      verify(remoteData.getCurrentWeather(cityName));
+      expect(result, equals(const Left(ConnectionFailure("message"))));
     });
   });
 }
