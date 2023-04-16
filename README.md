@@ -1,16 +1,6 @@
 # tdd_clean_architecture_app
 
-A new Flutter project.
+## if you want to follow this tutorial [Medium](https://betterprogramming.pub/flutter-clean-architecture-test-driven-development-practical-guide-445f388e8604)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![architecture-proposal](https://user-images.githubusercontent.com/101007778/232316049-198770f4-a551-4bfd-a486-3abc3a72254f.png)
