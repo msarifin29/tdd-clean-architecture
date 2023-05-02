@@ -7,7 +7,7 @@ import 'src/injection.dart' as di;
 import 'src/presentation/bloc/weather_bloc.dart';
 import 'src/presentation/pages/weather_page.dart';
 
-void main() {
+void main() async {
   di.init();
   runApp(const MyApp());
 }

@@ -4,6 +4,7 @@ import 'package:tdd_clean_architecture_app/src/data/repositories/weather_reposit
 import 'package:tdd_clean_architecture_app/src/domain/repositories/weather_reporitory.dart';
 import 'package:tdd_clean_architecture_app/src/domain/usecases/get_current_weather.dart';
 import 'package:tdd_clean_architecture_app/src/presentation/bloc/weather_bloc.dart';
+import 'package:http/http.dart' as http;
 
 final locator = GetIt.instance;
 void init() {
@@ -13,4 +14,5 @@ void init() {
       () => WeatherRepositoryImpl(dataSource: locator()));
   locator.registerLazySingleton<RemoteDataSource>(
       () => RemoteDataSourceImpl(client: locator()));
+  locator.registerLazySingleton(() => http.Client());
 }
